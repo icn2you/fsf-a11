@@ -1,2 +1,2 @@
-# fsf-hw11-friend-finder-node-app
+# fsf-hw11-friendfinder-node-app
 The Coding Boot Camp Homework 11: Friend Finder

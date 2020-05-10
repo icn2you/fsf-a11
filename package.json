@@ -1,0 +1,32 @@
+{
+  "name": "fsf-hw11-friendfinder-node-app",
+  "version": "0.1.0",
+  "description": "The Coding Boot Camp Homework 11: Friend Finder",
+  "main": "server.js",
+  "scripts": {
+    "test": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/icn2you/fsf-hw11-friendfinder-node-app.git"
+  },
+  "keywords": [
+    "friend",
+    "compatibility",
+    "social networking"
+  ],
+  "author": "Christopher B. Zenner",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/icn2you/fsf-hw11-friendfinder-node-app/issues"
+  },
+  "homepage": "https://github.com/icn2you/fsf-hw11-friendfinder-node-app#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "lodash": "^4.17.15",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.3",
+    "path": "^0.12.7"
+  }
+}
