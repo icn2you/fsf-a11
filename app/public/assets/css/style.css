@@ -51,7 +51,7 @@ body {
   background-image: url("../images/watercolor.png");
   color: #0f0f0f;
   font-family: "Lato", sans-serif;
-  height: 90%;
+  height: 92%;
   line-height: 1.5em;
 }
 
@@ -75,6 +75,10 @@ a, a:active, a:hover, a:visited {
 /***********************************************************************
  Main Content
 ***********************************************************************/
+.card {
+  border-color: #b8b8b8;
+}
+
 #little-friends {
   width: 100%;
 }
@@ -96,24 +100,25 @@ button {
 ***********************************************************************/
 .fixed-bottom {
   border-top: 5px #940808 solid;
-  height: 10%;
+  height: 8%;
 }
 
 footer {
   background: #0f0f0f;
   color: white;
-  font-weight: 700;
 }
 footer a, footer a:active, footer a:hover, footer a:visited {
   color: #e56b6b;
-  font-weight: 700;
+  font-weight: 400;
 }
 footer #copyright {
   font-size: 0.875rem;
-  margin: 1vh 0;
+  font-weight: 700;
+  margin: 0.25vh 0;
 }
 footer #attribution {
   font-size: 0.8125rem;
+  font-weight: 400;
 }
 
 /*# sourceMappingURL=style.css.map */
