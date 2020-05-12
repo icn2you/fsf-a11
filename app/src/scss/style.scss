@@ -1,0 +1,108 @@
+/***********************************************************************
+FSWD:  Christopher B. Zenner
+Date:  05/11/2020
+File:  style.css
+Ver.:  0.1.0 20200511
+
+This CSS specifies the layout and style for the FriendFinder Node app.
+***********************************************************************/
+@use 'components/debug-borders' as debug;
+@use 'components/friendfinder-fonts' as fonts;
+@use 'components/css-tricks-fluid-type' as fluid;
+@use 'components/shades-of-love-palette' as palette;
+
+/***********************************************************************
+ Global Elements
+***********************************************************************/
+$max-font: 18px;
+$max-width: 1280px;
+$min-font: 15px;
+$min-width: 320px;
+
+$almost-midnight: #0f0f0f;
+$hazy-skies: #f0f0f0;
+$twister: #2b2b2b;
+$cloudy-day: #d4d4d4;
+$thunderstorm: #636363;
+
+* {
+  /* Make widths static */
+  box-sizing: border-box;
+}
+
+html, main.container {
+  height: 100%;
+}
+
+body {
+  background-color: $hazy-skies;
+  background-image: url("../images/watercolor.png");
+  color: $almost-midnight;
+  font-family: fonts.$sans-serif-font-stack;
+  height: 90%;
+  line-height: 1.5em;
+}
+
+.blood {
+  color: palette.$blood;
+} 
+
+.gray {
+  color: $thunderstorm;
+}
+
+/***********************************************************************
+ Navigation Elements
+***********************************************************************/
+a, a:active, a:hover, a:visited {
+  color: $almost-midnight;
+  font-weight: 300;
+  font-size: 0.9375rem;
+}
+
+/***********************************************************************
+ Main Content
+***********************************************************************/
+#little-friends {
+  width: 100%;
+}
+
+h4 {
+  font-family: fonts.$handwriting-font-stack;
+}
+
+button {
+  margin-top: 2vh;
+}
+
+#dev-links {
+  margin-top: 1vh;
+}
+
+/***********************************************************************
+ Footer Elements
+***********************************************************************/
+.fixed-bottom {
+  border-top: 5px palette.$blood solid;
+  height: 10%;
+}
+
+footer {
+  background: $almost-midnight;
+  color: white;
+  font-weight: 700;
+
+  a, a:active, a:hover, a:visited {
+    color: palette.$pinkish;
+    font-weight: 700;
+  }
+
+  #copyright {
+    font-size: 0.875rem;
+    margin: 1vh 0;
+  }
+
+  #attribution {
+    font-size: 0.8125rem;
+  }
+} 

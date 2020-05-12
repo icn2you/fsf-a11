@@ -1,0 +1,11 @@
+/******************************************************************************
+ Debug Border Mixin
+
+ This mixin creates a container border for debugging purposes only.
+
+ Arguments:
+ $color - border color
+*******************************************************************************/
+@mixin debug-border($color: red) {
+  border: 1px solid $color !important;
+}
