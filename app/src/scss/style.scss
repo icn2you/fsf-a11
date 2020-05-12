@@ -96,19 +96,19 @@ footer {
   background: $almost-midnight;
   color: white;
 
-  a, a:active, a:hover, a:visited {
-    color: palette.$pinkish;
-    font-weight: 400;
-  }
-
   #copyright {
     font-size: 0.875rem;
     font-weight: 700;
     margin: 0.25vh 0;
   }
 
-  #attribution {
+  #attribution, 
+  a, a:active, a:hover, a:visited {
     font-size: 0.8125rem;
     font-weight: 400;
+  }
+
+  a, a:active, a:hover, a:visited {
+    color: palette.$pinkish;
   }
 } 

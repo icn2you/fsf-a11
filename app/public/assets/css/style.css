@@ -107,18 +107,18 @@ footer {
   background: #0f0f0f;
   color: white;
 }
-footer a, footer a:active, footer a:hover, footer a:visited {
-  color: #e56b6b;
-  font-weight: 400;
-}
 footer #copyright {
   font-size: 0.875rem;
   font-weight: 700;
   margin: 0.25vh 0;
 }
-footer #attribution {
+footer #attribution,
+footer a, footer a:active, footer a:hover, footer a:visited {
   font-size: 0.8125rem;
   font-weight: 400;
+}
+footer a, footer a:active, footer a:hover, footer a:visited {
+  color: #e56b6b;
 }
 
 /*# sourceMappingURL=style.css.map */
