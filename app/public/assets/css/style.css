@@ -1,0 +1,119 @@
+@charset "UTF-8";
+/**********************************************************************
+ FriendFinder Fonts
+
+ Compliments of [Google Fonts](https://fonts.google.com)
+***********************************************************************/
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Lato:wght@300;400;700&display=swap");
+/******************************************************************************
+ Debug Border Mixin
+
+ This mixin creates a container border for debugging purposes only.
+
+ Arguments:
+ $color - border color
+*******************************************************************************/
+/******************************************************************************
+ [CSS Tricks Fluid Type Mixin][fluid-type] 
+
+ This mixin is compliments of Geoff Graham at CSS Tricks. It allows a minimum
+ and maxmum font-size to be specified, making all sizes in between fluid.
+
+ [fluid-type]: https://css-tricks.com/snippets/css/fluid-typography/
+*******************************************************************************/
+/**********************************************************************
+ [PANTONE® Ponder Palette][palettes]
+
+ [palettes]: https://www.pantone.com/color-intelligence/color-of-the-year/color-of-the-year-2020-palette-exploration
+***********************************************************************/
+/***********************************************************************
+FSWD:  Christopher B. Zenner
+Date:  05/11/2020
+File:  style.css
+Ver.:  0.1.0 20200511
+
+This CSS specifies the layout and style for the FriendFinder Node app.
+***********************************************************************/
+/***********************************************************************
+ Global Elements
+***********************************************************************/
+* {
+  /* Make widths static */
+  box-sizing: border-box;
+}
+
+html, main.container {
+  height: 100%;
+}
+
+body {
+  background-color: #f0f0f0;
+  background-image: url("../images/watercolor.png");
+  color: #0f0f0f;
+  font-family: "Lato", sans-serif;
+  height: 90%;
+  line-height: 1.5em;
+}
+
+.blood {
+  color: #940808;
+}
+
+.gray {
+  color: #636363;
+}
+
+/***********************************************************************
+ Navigation Elements
+***********************************************************************/
+a, a:active, a:hover, a:visited {
+  color: #0f0f0f;
+  font-weight: 300;
+  font-size: 0.9375rem;
+}
+
+/***********************************************************************
+ Main Content
+***********************************************************************/
+#little-friends {
+  width: 100%;
+}
+
+h4 {
+  font-family: "Caveat", cursive;
+}
+
+button {
+  margin-top: 2vh;
+}
+
+#dev-links {
+  margin-top: 1vh;
+}
+
+/***********************************************************************
+ Footer Elements
+***********************************************************************/
+.fixed-bottom {
+  border-top: 5px #940808 solid;
+  height: 10%;
+}
+
+footer {
+  background: #0f0f0f;
+  color: white;
+  font-weight: 700;
+}
+footer a, footer a:active, footer a:hover, footer a:visited {
+  color: #e56b6b;
+  font-weight: 700;
+}
+footer #copyright {
+  font-size: 0.875rem;
+  margin: 1vh 0;
+}
+footer #attribution {
+  font-size: 0.8125rem;
+}
+
+/*# sourceMappingURL=style.css.map */
