@@ -1,0 +1,20 @@
+/******************************************************************************
+ Rounded Bottom Borders Mixin
+
+ This mixin generates bottom borders with rounded ends that are intended to be
+ used with `h1` through `h6` elements.
+
+ Arguments:
+ $color -> bottom border color
+ $size -> half the decorative line height (NOTE: The decorative line is 
+   constructed from a top and bottom border.)
+*******************************************************************************/
+@mixin rounded-bottom-border($color, $size: 2px) {
+  &:after {
+    content: '';
+    display: block;
+    border-top: $size solid $color;
+    border-bottom: $size solid $color;
+    border-radius: $size;
+  }
+}
