@@ -10,6 +10,7 @@ This CSS specifies the layout and style for the FriendFinder Node app.
 @use 'components/friendfinder-fonts' as fonts;
 @use 'components/css-tricks-fluid-type' as fluid;
 @use 'components/shades-of-love-palette' as palette;
+@use 'components/rounded-bottom-borders' as borders;
 
 /***********************************************************************
  Global Elements
@@ -80,8 +81,36 @@ button {
   margin-top: 2vh;
 }
 
+#survey {
+  background-color: $hazy-skies;
+  border: 1px solid $thunderstorm;
+  border-radius: 4px;
+  padding: 2rem 3rem;
+}
+
+form {
+  h2 {
+    @include borders.rounded-bottom-border($thunderstorm, 1px);
+    margin-top: 2rem;
+  }
+
+  h5 {
+    margin-top: 1rem;
+  }
+
+  h6 {
+    font-size: 1.125rem;
+    font-weight: 700;
+  }
+
+  .form-check {
+    margin: 1rem 0.25rem;
+  }
+}
+
 #dev-links {
   margin-top: 1vh;
+  margin-bottom: 10vh;
 }
 
 /***********************************************************************

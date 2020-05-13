@@ -26,6 +26,17 @@
 
  [palettes]: https://www.pantone.com/color-intelligence/color-of-the-year/color-of-the-year-2020-palette-exploration
 ***********************************************************************/
+/******************************************************************************
+ Rounded Bottom Borders Mixin
+
+ This mixin generates bottom borders with rounded ends that are intended to be
+ used with `h1` through `h6` elements.
+
+ Arguments:
+ $color -> bottom border color
+ $size -> half the decorative line height (NOTE: The decorative line is 
+   constructed from a top and bottom border.)
+*******************************************************************************/
 /***********************************************************************
 FSWD:  Christopher B. Zenner
 Date:  05/11/2020
@@ -91,8 +102,37 @@ button {
   margin-top: 2vh;
 }
 
+#survey {
+  background-color: #f0f0f0;
+  border: 1px solid #636363;
+  border-radius: 4px;
+  padding: 2rem 3rem;
+}
+
+form h2 {
+  margin-top: 2rem;
+}
+form h2:after {
+  content: "";
+  display: block;
+  border-top: 1px solid #636363;
+  border-bottom: 1px solid #636363;
+  border-radius: 1px;
+}
+form h5 {
+  margin-top: 1rem;
+}
+form h6 {
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+form .form-check {
+  margin: 1rem 0.25rem;
+}
+
 #dev-links {
   margin-top: 1vh;
+  margin-bottom: 10vh;
 }
 
 /***********************************************************************
