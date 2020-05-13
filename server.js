@@ -13,9 +13,9 @@ const app = express();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, 'app/public')));
 app.use(htmlRoutes);
+app.use(morgan('dev'));
 
 app.listen(PORT, () => {
   console.log(`FriendFinder app listening on port ${PORT} ...`);
