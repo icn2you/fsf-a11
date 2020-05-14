@@ -109,6 +109,9 @@ button {
   padding: 2rem 3rem;
 }
 
+form {
+  margin-top: 1rem;
+}
 form h2 {
   margin-top: 2rem;
 }

@@ -89,6 +89,8 @@ button {
 }
 
 form {
+  margin-top: 1rem;
+  
   h2 {
     @include borders.rounded-bottom-border($thunderstorm, 1px);
     margin-top: 2rem;
