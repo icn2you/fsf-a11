@@ -99,17 +99,14 @@ $(document).ready(() => {
       $(`input[name='${score.name}']#q${i+1}-radio-opt${score.value}`).prop('checked', false);
     });
 
-/*
+    friend.scores = scores;
 
-      $.post("/api/tables", reservation, (data) => {
-          if (data === "true") {
-              alert("Booking confirmed.")
-          } else if (data === "false") {
-              alert("No more reservations available. You are on the wait list.")
-          }
-      }) */
-      return false;
-  })
+    $.post("/api/friends", friend, (data) => {
+      if (!data) {
+        console.error('No form data detected.');
+      }
+    });
 
-
+    return false;
+  });
 });
