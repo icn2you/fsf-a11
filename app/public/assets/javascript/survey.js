@@ -67,4 +67,49 @@ $(document).ready(() => {
   }
 
   $('#survey-qns').append(surveyQs);
+
+/*   $('#survey').submit((event) => {
+    console.log(`${$('#friend-name').val()}`);
+    console.log(`${$('#friend-photo').val()}`);
+    const friendData = $('#survey').serialize();
+  }); */
+
+/*   $('#submit-survey-btn').on('click', () => {
+    $('#survey').submit();
+  }); */
+
+  $('#submit-survey-btn').on('click', () => {
+    // Get form data.
+    const friend = {
+      name: $('#friend-name').val().trim(),
+      photo: $('#friend-photo').val().trim(),
+    };
+
+    // Clear respective form fields.
+    $('#friend-name').val('');
+    $('#friend-photo').val('');
+    
+    const formData = $('#survey').serializeArray(),
+          scores = [];
+
+    formData.forEach((score, i) => {
+      scores.push(parseInt(`${score.value}`));
+
+      // Clear respective form element.
+      $(`input[name='${score.name}']#q${i+1}-radio-opt${score.value}`).prop('checked', false);
+    });
+
+/*
+
+      $.post("/api/tables", reservation, (data) => {
+          if (data === "true") {
+              alert("Booking confirmed.")
+          } else if (data === "false") {
+              alert("No more reservations available. You are on the wait list.")
+          }
+      }) */
+      return false;
+  })
+
+
 });
