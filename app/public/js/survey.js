@@ -71,49 +71,71 @@ $(document).ready(() => {
   $('#submit-survey-btn').on('click', (event) => {
     event.preventDefault();
 
-    $('html, body').animate({ scrollTop:0 }, 'slow');
+    $('html, body').animate({ scrollTop: 0 }, 100);
 
-    // Get user name and photo URL from form data.
-    const friend = {
-      name: $('#friend-name').val().trim(),
-      photo: $('#friend-photo').val().trim(),
-    };
+    // Validate that form was actually completed by user.
+    function isFormFilled() {
+      let formValid = true;
 
-    // Clear respective form fields.
-    $('#friend-name').val('');
-    $('#friend-photo').val('');
+      $('.form-control').each(function() {
+        if ($(this).val() === '')
+          formValid = false;
+      });
 
-    // Get user's survey responses from form data.
-    const formData = $('#survey').serializeArray(),
-          scores = [];
+      $('.form-check-input').each(function() {
+        if($(this).val() === '')
+          formValid = false;
+      });
 
-    formData.forEach((score, i) => {
-      scores.push(parseInt(`${score.value}`));
+      return formValid;
+    }
 
-      // Clear respective form element.
-      $(`input[name='${score.name}']#q${i+1}-radio-opt${score.value}`).prop('checked', false);
-    });
+    if (isFormFilled()) {
+      // Get user name and photo URL from form data.
+      const friend = {
+        name: $('#friend-name').val().trim(),
+        photo: $('#friend-photo').val().trim(),
+      };
 
-    friend.scores = scores;
+      // Clear respective form fields.
+      $('#friend-name').val('');
+      $('#friend-photo').val('');
 
-    $.post('/api/friends', friend, (match) => {
-      if (!match) {
-        alert('Your friend survey was not completed properly.');
-      }
-      else {
-        // DEBUG:
-        // console.log(match);
+      // Get user's survey responses from form data.
+      const formData = $('#survey').serializeArray(),
+            scores = [];
 
-        $('.match-name').text(match.name);
-        $('#match-photo').attr({
-          'src': match.photo,
-          'alt': match.name
-        });
+      formData.forEach((score, i) => {
+        scores.push(parseInt(`${score.value}`));
 
-        // Display best match
-        $('#friend-modal').modal('toggle');        
-      }
-    });
+        // Clear respective form element.
+        $(`input[name='${score.name}']#q${i+1}-radio-opt${score.value}`).prop('checked', false);
+      });
+
+      friend.scores = scores;
+
+      $.post('/api/friends', friend, (match) => {
+        if (!match) {
+          alert('You are not compatible with any of our exclusive clientele. Better luck next time!');
+        }
+        else {
+          // DEBUG:
+          // console.log(match);
+
+          $('.match-name').text(match.name);
+          $('#match-photo').attr({
+            'src': match.photo,
+            'alt': match.name
+          });
+
+          // Display best match
+          $('#friend-modal').modal('toggle');        
+        }
+      });
+    }
+    else {
+      alert('Your friend survey was not completed properly.');
+    }
 
     return false;
   });
