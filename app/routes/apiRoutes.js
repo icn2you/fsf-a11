@@ -30,7 +30,8 @@ module.exports = (() => {
     // DEBUG:
     // console.log(newFriend);
 
-    let match = null;
+    let friendExists = false,
+        match = null;
 
     if (newFriend) {
       const newFriendScores = newFriend.scores;
@@ -66,27 +67,33 @@ module.exports = (() => {
           // DEBUG:
           console.log(`You have a score difference of ${potentialMatchScore} with ${potentialMatchName}.`);
         }
+        else {
+          friendExists = true;
+        }
       }
 
       console.log(`You and ${matchName} should definitely get to know one another!`);
 
-      try {
-        if (friends)
-          friends.push(newFriend);
-        else
-          friends = [].push(friend);
+      // DEBUG:
+      // console.log(match);
 
-        fs.writeFileSync(dataFile, JSON.stringify(friends, null, 2));
+      res.json(match);
+ 
+      // Add user to "database" if they don't already exist.
+      if (!friendExists) {
+        try {
+          if (friends)
+            friends.push(newFriend);
+          else
+            friends = [].push(friend);
+
+          fs.writeFileSync(dataFile, JSON.stringify(friends, null, 2));
+        }
+        catch (err) {
+          console.error(err);
+        }
       }
-      catch (err) {
-        console.error(err);
-      }     
     }
-
-    // DEBUG:
-    // console.log(match);
-
-    res.json(match);
   });
 
   return apiRoutes;
