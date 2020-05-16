@@ -5,7 +5,8 @@ module.exports = (() => {
   'use strict';
 
   const apiRoutes = require('express').Router(),
-        dataFile = path.join(__dirname, '..', 'data', 'friends.json');
+        dataFile = path.join(__dirname, '..', 'data', 'friends.json'),
+        totalQns = 10;
 
   let friends = null;
 
@@ -30,7 +31,41 @@ module.exports = (() => {
     // console.log(newFriend);
 
     if (newFriend) {
-      console.log(friends);
+      const newFriendScores = newFriend.scores;
+      
+      let matchName = null,
+          matchScore = 0,
+          potentialMatchScore = 0;
+
+      for (const friend of friends) {
+        // Make sure visitor is not in "database" already.
+        if (newFriend.name !== friend.name)
+        {
+          const potentialMatchName = friend.name,
+                potentialMatchScores = friend.scores; 
+          
+          let totalScoreDiff = 0;
+
+          for (let i = 0; i < totalQns; i++) {
+            const qDiff = Math.abs(
+              parseInt(newFriendScores[i]) - potentialMatchScores[i]);
+
+            totalScoreDiff += qDiff;
+          }
+
+          if (totalScoreDiff < potentialMatchScore) {
+            matchScore = totalScoreDiff;
+            matchName = potentialMatchName;
+          }
+
+          potentialMatchScore = totalScoreDiff;
+
+          // DEBUG:
+          console.log(`You have a score difference of ${potentialMatchScore} with ${potentialMatchName}.`);
+        }
+      }
+
+      console.log(`You and ${matchName} should definitely get to know one another!`);
 
       try {
         if (friends)
