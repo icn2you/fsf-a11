@@ -68,8 +68,12 @@ $(document).ready(() => {
 
   $('#survey-qns').append(surveyQs);
 
-  $('#submit-survey-btn').on('click', () => {
-    // Get user name and phot from form data.
+  $('#submit-survey-btn').on('click', (event) => {
+    event.preventDefault();
+
+    $('html, body').animate({ scrollTop:0 }, 'slow');
+
+    // Get user name and photo URL from form data.
     const friend = {
       name: $('#friend-name').val().trim(),
       photo: $('#friend-photo').val().trim(),
@@ -97,17 +101,17 @@ $(document).ready(() => {
         alert('Your friend survey was not completed properly.');
       }
       else {
-        console.log(data);
+        // DEBUG:
+        // console.log(match);
 
-        $('#you-plus-friend').text(`You+${match.name}`);
-        $('#match-name').text(match.name);
+        $('.match-name').text(match.name);
         $('#match-photo').attr({
           'src': match.photo,
           'alt': match.name
         });
 
         // Display best match
-        $('#results-modal').modal('toggle');        
+        $('#friend-modal').modal('toggle');        
       }
     });
 

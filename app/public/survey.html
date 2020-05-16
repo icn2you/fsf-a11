@@ -14,8 +14,6 @@
     <!-- Fonts -->
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/05d8befa20.js" crossorigin="anonymous"></script>
-    <!-- Google Fonts -->
-    
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -27,85 +25,83 @@
   
   <!--========================== HEAD ===========================-->
   <body>
-    <body>
-      <!-- Header -->
-      <header></header>
-  
-      <!-- Primary Content -->
-      <main class="container">
-        <div class="row mt-2 justify-content-left">
-          <div class="col-12">
-            <form id="survey">
-              <h1><span class="gray">Friend</span><i class="fas fa-plus"></i><span class="blood">Finder</span> Survey</h1>
-              <h2>About You</h2>
-              <div class="form-group col-6">
-                <label for="friend-name">Name</label>
-                <input type="text" class="form-control" id="friend-name" placeholder="Jane Smith" required>
-              </div>
-              <div class="form-group col-6">
-                <label for="friend-photo">Link to Photo Image</label>
-                <input type="url" class="form-control" id="friend-photo" placeholder="https://photos.app.goo.gl/5yWD4YQJL5hx44Yv6" required>
-              </div>
-              <h2>Questions</h2>
-              <div id="survey-qns"></div>
-              <div id="submit-survey-btn" class="text-center"><button type="button" class="btn btn-outline-dark"><i class="fas fa-user-check"></i> &nbsp; Submit Survey</button></div>
-              <!-- Button trigger modal 
-              <div><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#friend-modal">
-                Launch static backdrop modal
-              </button></div> -->          
-            </form>
-            <div id="dev-links" class="text-center">
-              <a href="#" target="_blank">API Friends List</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#" target="_blank">GitHub Repo</a>
-            </div>
-          </div>
-        </div> 
-      </main>
+    <!-- Header -->
+    <header></header>
 
-      <!-- Friend Modal -->
-      <div class="modal fade" id="friend-modal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="you-plus-friend-title" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title" id="you-plus-friend-title"></h4>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
+    <!-- Primary Content -->
+    <main class="container">
+      <div class="row mt-2 justify-content-left">
+        <div class="col-12">
+          <form id="survey">
+            <h1><span class="gray">Friend</span><i class="fas fa-plus"></i><span class="blood">Finder</span> Survey</h1>
+            <h2>About You</h2>
+            <div class="form-group col-6">
+              <label for="friend-name">Name</label>
+              <input type="text" class="form-control" id="friend-name" placeholder="Jane Smith" required>
             </div>
-            <div class="modal-body">
-              <img id="match-photo">
-              <p>You and <span id="match-name"></span> should definitely get to know one another!</p>
+            <div class="form-group col-6">
+              <label for="friend-photo">Link to Photo Image</label>
+              <input type="url" class="form-control" id="friend-photo" placeholder="https://photos.app.goo.gl/5yWD4YQJL5hx44Yv6" required>
             </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">OK!</button>
+            <h2>Questions</h2>
+            <div id="survey-qns"></div>
+            <div id="submit-survey-btn" class="text-center"><button type="button" class="btn btn-outline-dark"><i class="fas fa-user-check"></i> &nbsp; Submit Survey</button></div>        
+          </form>
+          <div id="dev-links" class="text-center">
+            <a href="#" target="_blank">API Friends List</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#" target="_blank">GitHub Repo</a>
+          </div>
+        </div>
+      </div> 
+    </main>
+
+    <!-- Friend Modal -->
+    <div class="modal fade" id="friend-modal" data-backdrop="false" tabindex="-1" role="dialog" aria-labelledby="you-plus-friend-title" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title" id="you-plus-friend-title"><span class="gray">You</span><i class="fas fa-plus"></i><span class="match-name blood"></span></h2>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <img class="img-fluid" id="match-photo">
+            <h5>You and <span class="match-name"></span> should definitely get to know one another!</h5>
+          </div>
+          <div class="modal-footer">
+            <div class="mx-auto">
+              <button type="button" class="btn btn-outline-danger" data-dismiss="modal"><i class="fas fa-grin-hearts"></i> &nbsp; I'm in Love!</button> &nbsp; 
+              <button type="button" class="btn btn-outline-dark" data-dismiss="modal"><i class="fas fa-meh"></i> &nbsp; Not So Much</button>
             </div>
           </div>
         </div>
       </div>
-  
-      <!-- Sticky Footer with Attributions -->
-      <footer class="fixed-bottom">
-        <div class="container justify-content-center">
-          <div class="row">
-            <div class="col-12 text-center" id="site-info">
-              <div id="copyright">&copy; 2020 Christopher B. Zenner. All rights reserved.</div>
-              <div id="attribution">Background pattern courtesy of <a href="https://www.toptal.com/designers/subtlepatterns/" target="_blank">Toptal</a>. Fonts served by <a href="https://fonts.google.com/" target="_blank">Google Fonts</a>. Favicon made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik" target="_blank">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">FLATICON</a>. Landing page image compliments of <a href="https://pexels.com/" target="_blank">Pexels</a>.</div>
-            </div>
+    </div>
+
+    <!-- Sticky Footer with Attributions -->
+    <footer class="fixed-bottom">
+      <div class="container justify-content-center">
+        <div class="row">
+          <div class="col-12 text-center" id="site-info">
+            <div id="copyright">&copy; 2020 Christopher B. Zenner. All rights reserved.</div>
+            <div id="attribution">Background pattern courtesy of <a href="https://www.toptal.com/designers/subtlepatterns/" target="_blank">Toptal</a>. Fonts served by <a href="https://fonts.google.com/" target="_blank">Google Fonts</a>. Favicon made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik" target="_blank">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">FLATICON</a>. Landing page image compliments of <a href="https://pexels.com/" target="_blank">Pexels</a>.</div>
           </div>
         </div>
-      </footer>    
-  
-      <!-- Optional JavaScript -->
-      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-      <!-- Use Google Dev CDN for jQuery due to jQuery's misbehaving CDN
-      <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script> -->
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-      <!-- Load Babel -->
-      <!-- v6 <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> -->
-      <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-      <!-- Survey Page Script -->
-      <script src="/js/survey.js" type="text/babel"></script>
+      </div>
+    </footer>    
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!-- Use Google Dev CDN for jQuery due to jQuery's misbehaving CDN
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <!-- Load Babel -->
+    <!-- v6 <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- Survey Page Script -->
+    <script src="/js/survey.js" type="text/babel"></script>
   </body>
   
 </html>
