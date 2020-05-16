@@ -23,9 +23,9 @@ module.exports = (() => {
 
     if (newFriend) {
       const dataFile = path.join(__dirname, '..', 'data', 'friends.js');
-      fs.appendFile(dataFile, `\n${newFriend}`, (err) => {
-        console.error(err);
-      });
+      fs.appendFile(dataFile, 
+        `\n${JSON.stringify(newFriend)}`, 
+        console.error);
     }
 
     res.json(`newFriend = ${newFriend}`);
