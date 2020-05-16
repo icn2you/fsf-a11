@@ -30,6 +30,8 @@ module.exports = (() => {
     // DEBUG:
     // console.log(newFriend);
 
+    let match = null;
+
     if (newFriend) {
       const newFriendScores = newFriend.scores;
       
@@ -56,6 +58,7 @@ module.exports = (() => {
           if (totalScoreDiff < potentialMatchScore) {
             matchScore = totalScoreDiff;
             matchName = potentialMatchName;
+            match = friend;
           }
 
           potentialMatchScore = totalScoreDiff;
@@ -79,6 +82,11 @@ module.exports = (() => {
         console.error(err);
       }     
     }
+
+    // DEBUG:
+    // console.log(match);
+
+    res.json(match);
   });
 
   return apiRoutes;
