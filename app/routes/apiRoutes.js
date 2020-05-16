@@ -30,18 +30,7 @@ module.exports = (() => {
     // console.log(newFriend);
 
     if (newFriend) {
-
-
-      try {
-        const rawData = fs.readFileSync(dataFile);
-
-        friends = JSON.parse(rawData);
-
-        console.log(friends);
-      } 
-      catch (err) {
-        console.error(err);
-      }
+      console.log(friends);
 
       try {
         if (friends)
