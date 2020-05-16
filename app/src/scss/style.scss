@@ -78,6 +78,10 @@ h4 {
   font-family: fonts.$handwriting-font-stack;
 }
 
+h5 {
+  margin-top: 1rem;
+}
+
 button {
   margin-top: 2vh;
 }
@@ -97,10 +101,6 @@ form {
     margin-top: 2rem;
   }
 
-  h5 {
-    margin-top: 1rem;
-  }
-
   h6 {
     font-size: 1.125rem;
     font-weight: 700;
@@ -114,6 +114,16 @@ form {
 #dev-links {
   margin-top: 1vh;
   margin-bottom: 10vh;
+}
+
+/***********************************************************************
+ Modals
+***********************************************************************/
+#friend-modal {
+  #match-photo {
+    max-width: 480px;
+    width: 100%;
+  }
 }
 
 /***********************************************************************
