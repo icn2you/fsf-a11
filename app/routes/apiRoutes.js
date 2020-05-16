@@ -4,31 +4,57 @@ const fs = require('fs'),
 module.exports = (() => {
   'use strict';
 
-  const apiRoutes = require('express').Router();
+  const apiRoutes = require('express').Router(),
+        dataFile = path.join(__dirname, '..', 'data', 'friends.json');
 
-/*   htmlRoutes.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'public', 'home.html'));
+  let friends = null;
+
+  try {
+    const rawData = fs.readFileSync(dataFile);
+
+    friends = JSON.parse(rawData);
+  } 
+  catch (err) {
+    console.error(err);
+  }
+
+  apiRoutes.get('/api/friends', (req, res) => {
+    res.json(friends);
   });
 
-  htmlRoutes.get('/survey', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'public', 'survey.html'));
-  }); */
-
-  apiRoutes.post("/api/friends", (req, res) => {
+  apiRoutes.post('/api/friends', (req, res) => {
     const newFriend = req.body;
 
     // ASSERT: newFriend is equal to friend from survey.js
     // DEBUG:
-    console.log(newFriend);
+    // console.log(newFriend);
 
     if (newFriend) {
-      const dataFile = path.join(__dirname, '..', 'data', 'friends.js');
-      fs.appendFile(dataFile, 
-        `\n${JSON.stringify(newFriend)}`, 
-        console.error);
-    }
 
-    res.json(`newFriend = ${newFriend}`);
+
+      try {
+        const rawData = fs.readFileSync(dataFile);
+
+        friends = JSON.parse(rawData);
+
+        console.log(friends);
+      } 
+      catch (err) {
+        console.error(err);
+      }
+
+      try {
+        if (friends)
+          friends.push(newFriend);
+        else
+          friends = [].push(friend);
+
+        fs.writeFileSync(dataFile, JSON.stringify(friends, null, 2));
+      }
+      catch (err) {
+        console.error(err);
+      }     
+    }
   });
 
   return apiRoutes;
