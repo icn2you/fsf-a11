@@ -92,9 +92,22 @@ $(document).ready(() => {
 
     friend.scores = scores;
 
-    $.post("/api/friends", friend, (data) => {
-      if (!data) {
-        console.error('No form data detected.');
+    $.post('/api/friends', friend, (match) => {
+      if (!match) {
+        alert('Your friend survey was not completed properly.');
+      }
+      else {
+        console.log(data);
+
+        $('#you-plus-friend').text(`You+${match.name}`);
+        $('#match-name').text(match.name);
+        $('#match-photo').attr({
+          'src': match.photo,
+          'alt': match.name
+        });
+
+        // Display best match
+        $('#results-modal').modal('toggle');        
       }
     });
 
