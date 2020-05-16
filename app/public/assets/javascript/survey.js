@@ -68,18 +68,8 @@ $(document).ready(() => {
 
   $('#survey-qns').append(surveyQs);
 
-/*   $('#survey').submit((event) => {
-    console.log(`${$('#friend-name').val()}`);
-    console.log(`${$('#friend-photo').val()}`);
-    const friendData = $('#survey').serialize();
-  }); */
-
-/*   $('#submit-survey-btn').on('click', () => {
-    $('#survey').submit();
-  }); */
-
   $('#submit-survey-btn').on('click', () => {
-    // Get form data.
+    // Get user name and phot from form data.
     const friend = {
       name: $('#friend-name').val().trim(),
       photo: $('#friend-photo').val().trim(),
@@ -88,7 +78,8 @@ $(document).ready(() => {
     // Clear respective form fields.
     $('#friend-name').val('');
     $('#friend-photo').val('');
-    
+
+    // Get user's survey responses from form data.
     const formData = $('#survey').serializeArray(),
           scores = [];
 
