@@ -116,7 +116,9 @@ $(document).ready(() => {
 
       $.post('/api/friends', friend, (match) => {
         if (!match) {
-          alert('You are not compatible with any of our exclusive clientele. Better luck next time!');
+          $('#alert-msg').text('You are not compatible with any of our exclusive clientele. Better luck next time!');
+      
+          $('#alert-modal').modal('toggle');
         }
         else {
           // DEBUG:
@@ -134,7 +136,9 @@ $(document).ready(() => {
       });
     }
     else {
-      alert('Your friend survey was not completed properly.');
+      $('#alert-msg').text('Your survey was not completed properly.');
+      
+      $('#alert-modal').modal('toggle'); 
     }
 
     return false;

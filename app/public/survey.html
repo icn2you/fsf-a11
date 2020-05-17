@@ -48,15 +48,15 @@
             <div id="submit-survey-btn" class="text-center"><button type="button" class="btn btn-outline-dark"><i class="fas fa-user-check"></i> &nbsp; Submit Survey</button></div>        
           </form>
           <div id="dev-links" class="text-center">
-            <a href="#" target="_blank">API Friends List</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#" target="_blank">GitHub Repo</a>
+            <a href="/api/friends" target="_blank">API Friends List</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://github.com/icn2you/fsf-hw11-friendfinder-node-app.git" target="_blank">GitHub Repo</a>
           </div>
         </div>
       </div> 
     </main>
 
     <!-- Friend Modal -->
-    <div class="modal fade" id="friend-modal" data-backdrop="false" tabindex="-1" role="dialog" aria-labelledby="you-plus-friend-title" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
+    <div id="friend-modal" class="modal fade" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="you-plus-friend-title" aria-hidden="true">
+      <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
             <h2 class="modal-title" id="you-plus-friend-title"><span class="gray">You</span><i class="fas fa-plus"></i><span class="match-name blood"></span></h2>
@@ -73,6 +73,19 @@
               <button type="button" class="btn btn-outline-danger" data-dismiss="modal"><i class="fas fa-grin-hearts"></i> &nbsp; I'm in Love!</button> &nbsp; 
               <button type="button" class="btn btn-outline-dark" data-dismiss="modal"><i class="fas fa-meh"></i> &nbsp; Not So Much</button>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Alerts Modal -->
+    <div id="alert-modal" class="modal fade" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="alert-modal-title" aria-hidden="true">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div id="alert-icon" class="text-center"><i class="fas fa-exclamation-circle"></i></div>
+          <div id="alert-msg" class="modal-body"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
           </div>
         </div>
       </div>
