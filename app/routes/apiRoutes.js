@@ -66,9 +66,10 @@ module.exports = (() => {
             firstIteration = false;
           }
 
-          // If newFriend has a lower score difference with this
-          // friend, make this friend the potential match.
-          if (totalScoreDiff < potentialMatchScore) {
+          // If newFriend has a lower or equal score difference with
+          // this friend, make this friend the potential match. This
+          // ensures the user always gets the most recent match.
+          if (totalScoreDiff <= potentialMatchScore) {
             potentialMatchScore = totalScoreDiff;
             match = friend;
           }
