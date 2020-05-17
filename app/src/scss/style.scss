@@ -41,7 +41,7 @@ body {
   background-image: url("../img/watercolor.png");
   color: $almost-midnight;
   font-family: fonts.$sans-serif-font-stack;
-  height: 92%;
+  height: 95%;
   line-height: 1.5em;
 }
 
@@ -123,7 +123,7 @@ button {
 
 #dev-links {
   margin-top: 1vh;
-  margin-bottom: 10vh;
+  margin-bottom: 12vh;
 }
 
 /***********************************************************************
@@ -173,7 +173,7 @@ button {
 ***********************************************************************/
 .fixed-bottom {
   border-top: 5px palette.$blood solid;
-  height: 8%;
+  height: 10vh;
 }
 
 footer {
