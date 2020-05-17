@@ -8,19 +8,22 @@ module.exports = (() => {
         dataFile = path.join(__dirname, '..', 'data', 'friends.json'),
         totalQns = 10;
 
-  let friends = null;
+  function getFriends() {
+    try {
+      const rawData = fs.readFileSync(dataFile);
 
-  try {
-    const rawData = fs.readFileSync(dataFile);
+      return JSON.parse(rawData);
+    } 
+    catch (err) {
+      console.error(err);
 
-    friends = JSON.parse(rawData);
-  } 
-  catch (err) {
-    console.error(err);
+      // Service Unavailable
+      res.status(503).end();
+    }
   }
 
   apiRoutes.get('/api/friends', (req, res) => {
-    res.json(friends);
+    res.json(getFriends());
   });
 
   apiRoutes.post('/api/friends', (req, res) => {
@@ -30,15 +33,16 @@ module.exports = (() => {
     // DEBUG:
     // console.log(newFriend);
 
-    let friendExists = false,
+    let friends = getFriends(),
+        friendExists = false,
         match = null;
 
     if (newFriend) {
       const newFriendScores = newFriend.scores;
       
-      let matchName = null,
-          matchScore = 0,
-          potentialMatchScore = 0;
+      let potentialMatchName = null,
+          potentialMatchScore = 0,
+          firstIteration = true;
 
       for (const friend of friends) {
         // Make sure visitor is not in "database" already.
@@ -56,16 +60,21 @@ module.exports = (() => {
             totalScoreDiff += qDiff;
           }
 
+          // Only do this the first time to seed the variable.
+          if (firstIteration) {
+            potentialMatchScore = totalScoreDiff;
+            firstIteration = false;
+          }
+
+          // If newFriend has a lower score difference with this
+          // friend, make this friend the potential match.
           if (totalScoreDiff < potentialMatchScore) {
-            matchScore = totalScoreDiff;
-            matchName = potentialMatchName;
+            potentialMatchScore = totalScoreDiff;
             match = friend;
           }
 
-          potentialMatchScore = totalScoreDiff;
-
           // DEBUG:
-          console.log(`You have a score difference of ${potentialMatchScore} with ${potentialMatchName}.`);
+          console.log(`You have a score difference of ${totalScoreDiff} with ${potentialMatchName}.`);
         }
         else {
           friendExists = true;
@@ -73,7 +82,7 @@ module.exports = (() => {
       }
 
       // DEBUG:
-      // console.log(match);
+      console.log(`You and ${match.name} should definitely get to know one another`);
 
       res.json(match);
    
@@ -93,7 +102,7 @@ module.exports = (() => {
       }
     }
     else {
-      // Bad request
+      // Bad Request
       res.status(400).end();
     }
   });
