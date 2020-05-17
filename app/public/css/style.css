@@ -103,10 +103,6 @@ h5 {
   margin-top: 1rem;
 }
 
-button {
-  margin-top: 2vh;
-}
-
 #survey {
   background-color: #f0f0f0;
   border: 1px solid #636363;
@@ -135,6 +131,19 @@ form .form-check {
   margin: 1rem 0.25rem;
 }
 
+button {
+  margin-top: 2vh;
+}
+
+.btn-outline-dark {
+  border-color: #2b2b2b;
+  color: #2b2b2b;
+}
+.btn-outline-dark:active, .btn-outline-dark:hover {
+  background-color: #2b2b2b;
+  color: white;
+}
+
 #dev-links {
   margin-top: 1vh;
   margin-bottom: 10vh;
@@ -143,6 +152,31 @@ form .form-check {
 /***********************************************************************
  Modals
 ***********************************************************************/
+.modal #alert-icon {
+  color: #940808;
+  font-size: 2rem;
+  margin-top: 1rem;
+}
+.modal #alert-msg {
+  font-weight: 700;
+}
+.modal .btn-outline-danger {
+  border-color: #940808;
+  color: #940808;
+}
+.modal .btn-outline-danger:active, .modal .btn-outline-danger:hover {
+  background-color: #940808;
+  color: white;
+}
+.modal .btn-outline-dark {
+  border-color: #636363;
+  color: #636363;
+}
+.modal .btn-outline-dark:active, .modal .btn-outline-dark:hover {
+  background-color: #636363;
+  color: white;
+}
+
 #friend-modal #match-photo {
   max-width: 480px;
   width: 100%;

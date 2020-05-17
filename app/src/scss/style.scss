@@ -82,10 +82,6 @@ h5 {
   margin-top: 1rem;
 }
 
-button {
-  margin-top: 2vh;
-}
-
 #survey {
   background-color: $hazy-skies;
   border: 1px solid $thunderstorm;
@@ -111,6 +107,20 @@ form {
   }
 }
 
+button {
+  margin-top: 2vh;
+}
+
+.btn-outline-dark {
+  border-color: $twister;
+  color: $twister;
+
+  &:active, &:hover {
+    background-color: $twister;
+    color: white;
+  }
+}
+
 #dev-links {
   margin-top: 1vh;
   margin-bottom: 10vh;
@@ -119,6 +129,38 @@ form {
 /***********************************************************************
  Modals
 ***********************************************************************/
+.modal {
+  #alert-icon {
+    color: palette.$blood;
+    font-size: 2rem;
+    margin-top: 1rem;
+  }
+
+  #alert-msg {
+    font-weight: 700;
+  }
+
+  .btn-outline-danger {
+    border-color: palette.$blood;
+    color: palette.$blood;
+  
+    &:active, &:hover {
+      background-color: palette.$blood;
+      color: white;
+    }
+  }
+
+  .btn-outline-dark {
+    border-color: $thunderstorm;
+    color: $thunderstorm;
+  
+    &:active, &:hover {
+      background-color: $thunderstorm;
+      color: white;
+    }
+  }
+}
+
 #friend-modal {
   #match-photo {
     max-width: 480px;
