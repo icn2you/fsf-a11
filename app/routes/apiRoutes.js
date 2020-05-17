@@ -72,13 +72,11 @@ module.exports = (() => {
         }
       }
 
-      console.log(`You and ${matchName} should definitely get to know one another!`);
-
       // DEBUG:
       // console.log(match);
 
       res.json(match);
- 
+   
       // Add user to "database" if they don't already exist.
       if (!friendExists) {
         try {
@@ -93,6 +91,10 @@ module.exports = (() => {
           console.error(err);
         }
       }
+    }
+    else {
+      // Bad request
+      res.status(400).end();
     }
   });
 
