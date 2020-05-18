@@ -83,7 +83,7 @@ module.exports = (() => {
       }
 
       // DEBUG:
-      console.log(`You and ${match.name} should definitely get to know one another`);
+      console.log(`You and ${match.name} should definitely get to know one another!`);
 
       res.json(match);
    

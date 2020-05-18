@@ -1,3 +1,17 @@
+/***********************************************************************
+FSWD:  Christopher B. Zenner
+Date:  05/16/2020
+File:  survey.js
+Ver.:  0.2.0 20200517
+       
+This JS script serves the following functions:
+
+1. renders the FriendFinder survey for the user to complete
+2. listens for the user to submit their completed survey and then POSTs
+   the results for processing
+3. listens for button click events on the match modal and modifies the 
+   survey.html page accordingly
+***********************************************************************/
 const questions = [
   'You are a fairly traditional, even old-fashioned person.',
   'You are easily bored when you are alone or not busy.',
@@ -11,9 +25,12 @@ const questions = [
   'Your hobbies and leisure activities tend to be very hands-on or active (<em>e.g.</em>, knitting, skating, dancing).',
 ];
 
+// On page load ...
 $(document).ready(() => {
   let qNo = 0,
-      surveyQs = '';
+      surveyQs = '',
+      user = null,
+      userMatch = null;
 
   for (const q of questions) {
   /*
@@ -68,6 +85,7 @@ $(document).ready(() => {
 
   $('#survey-qns').append(surveyQs);
 
+  // Survey submission event listener
   $('#submit-survey-btn').on('click', (event) => {
     event.preventDefault();
 
@@ -113,10 +131,11 @@ $(document).ready(() => {
       });
 
       friend.scores = scores;
+      user = friend;
 
       $.post('/api/friends', friend, (match) => {
         if (!match) {
-          $('#alert-msg').text('You are not compatible with any of our exclusive clientele. Better luck next time!');
+          $('#alert-msg').text('You are not compatible with anyone. Better luck next time, and consider seeing a therapist!');
       
           $('#alert-modal').modal('toggle');
         }
@@ -131,7 +150,9 @@ $(document).ready(() => {
           });
 
           // Display best match
-          $('#friend-modal').modal('toggle');        
+          $('#friend-modal').modal('toggle');
+          
+          userMatch = match;
         }
       });
     }
@@ -142,5 +163,67 @@ $(document).ready(() => {
     }
 
     return false;
+  });
+
+  // I'm in Love! button click event listener
+  $('#love-btn').on('click', (event) => { 
+    event.preventDefault();
+
+    let userPlusMatch = `<!-- 1 --><div class="row h-100 mt-2 justify-content-center">`;
+      userPlusMatch += `<!-- 2 --><div class="col-lg-10 my-auto">`;
+      userPlusMatch += `<!-- 3 --><div class="card">`;
+      userPlusMatch += `<!-- 4 --><div class="card-body text-center">`;
+      userPlusMatch += `<!-- 5 --><div class="card-text">`;
+      userPlusMatch += `<!-- 6 --><div id="friend-match" class="container">`;
+      userPlusMatch += `<!-- 7 --><div class="row mt-4 justify-content-center align-items-center">`;
+      userPlusMatch += `<!-- 8 --><div class="col-4">`;
+      userPlusMatch += `<figure>`;
+      userPlusMatch += `<img class="img-fluid" src="${user.photo}" alt="${user.name}">`;
+      userPlusMatch += `<figcaption class="gray"><h3>${user.name}</h3></figcaption>`;
+      userPlusMatch += `</figure>`;
+      userPlusMatch += `</div><!-- /8 -->`;
+      userPlusMatch += `<!-- 9 --><div id="lg-plus" class="col-1"><i class="fas fa-plus"></i></div><!-- /9 -->`;
+      userPlusMatch += `<!-- 10 --><div class="col-4">`;            
+      userPlusMatch += `<figure>`;
+      userPlusMatch += `<img class="img-fluid" src="${userMatch.photo}" alt="${userMatch.name}">`;
+      userPlusMatch += `<figcaption class="blood"><h3>${userMatch.name}</h3></figcaption>`;
+      userPlusMatch += `</figure>`;
+      userPlusMatch += `</div><!-- /10 -->`;
+      userPlusMatch += `</div><!-- /7 -->`;      
+      userPlusMatch += `</div><!-- /6 -->`;
+      userPlusMatch += `<h1 class="card-title"><span class="gray">Friend</span><i class="fas fa-plus"></i><span class="blood">Finder</span> Match</h1>`;
+      userPlusMatch += `<h5 id="ff-msg">May you both enjoy a lifetime of friendship<i class="fas fa-plus gray"></i>!</h5>`;
+      userPlusMatch += `</div><!-- /5 -->`;
+      userPlusMatch += `</div><!-- /4 -->`;
+      userPlusMatch += `</div><!-- /3 -->`;
+      userPlusMatch += `<!-- 11 --><div id="dev-links" class="text-center">`;
+      userPlusMatch += `<a href="/api/friends" target="_blank">API Friends List</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://github.com/icn2you/fsf-hw11-friendfinder-node-app.git" target="_blank">GitHub Repo</a>`;
+      userPlusMatch += `</div><!-- /11 -->`;
+      userPlusMatch += `</div><!-- /2 -->`;
+      userPlusMatch += `</div><!-- /1 -->`;
+
+    $('main.container').empty().html(userPlusMatch);
+  });
+
+  // Not So Much button click event listener
+  $('#meh-btn').on('click', (event) => { 
+    event.preventDefault();
+
+    let userPlusMatch = `<!-- 1 --><div class="row h-100 mt-2 justify-content-center">`;
+      userPlusMatch += `<!-- 2 --><div class="col-lg-8 my-auto">`;
+      userPlusMatch += `<!-- 3 --><div class="card">`;
+      userPlusMatch += `<img src="/img/lonely-boy.jpg" alt="Lonely Boy" id="lonely-boy" class="card-img-top">`
+      userPlusMatch += `<!-- 4 --><div class="card-body text-center">`;
+      userPlusMatch += `<h1 class="card-title"><span class="gray">Friend</span><i class="fas fa-plus"></i><span class="blood">Finder</span></h1>`;
+      userPlusMatch += `<h5 class="card-text">Better luck next time. <i class="fas fa-heart-broken blood"></i></h5>`;
+      userPlusMatch += `</div><!-- /4 -->`;
+      userPlusMatch += `</div><!-- /3 -->`;
+      userPlusMatch += `<!-- 5 --><div id="dev-links" class="text-center">`;
+      userPlusMatch += `<a href="/api/friends" target="_blank">API Friends List</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://github.com/icn2you/fsf-hw11-friendfinder-node-app.git" target="_blank">GitHub Repo</a>`;
+      userPlusMatch += `</div><!-- /5 -->`;
+      userPlusMatch += `</div><!-- /2 -->`;
+      userPlusMatch += `</div><!-- /1 -->`;
+
+    $('main.container').empty().html(userPlusMatch);
   });
 });
