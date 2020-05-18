@@ -91,7 +91,8 @@ a, a:active, a:hover, a:visited {
   margin-top: 1rem;
 }
 
-#little-friends {
+#little-friends,
+#lonely-boy {
   width: 100%;
 }
 
@@ -129,6 +130,23 @@ form h6 {
 }
 form .form-check {
   margin: 1rem 0.25rem;
+}
+
+#friend-match figure {
+  display: inline-block;
+}
+#friend-match figure img {
+  border-radius: 100%;
+  max-width: 360px;
+  width: 100%;
+}
+#friend-match figure figcaption {
+  margin-top: 1rem;
+}
+#friend-match #lg-plus {
+  color: #2b2b2b;
+  font-size: 5rem;
+  padding: 0;
 }
 
 button {

@@ -70,7 +70,8 @@ a, a:active, a:hover, a:visited {
   margin-top: 1rem;
 }
 
-#little-friends {
+#little-friends,
+#lonely-boy {
   width: 100%;
 }
 
@@ -104,6 +105,28 @@ form {
 
   .form-check {
     margin: 1rem 0.25rem;
+  }
+}
+
+#friend-match {
+  figure {
+    display: inline-block;
+
+    img {
+      border-radius: 100%;
+      max-width: 360px;
+      width: 100%;
+    }
+
+    figcaption {
+      margin-top: 1rem;
+    }
+  }
+
+  #lg-plus {
+    color: $twister;
+    font-size: 5rem;
+    padding: 0;
   }
 }
 
