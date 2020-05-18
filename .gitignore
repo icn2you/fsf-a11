@@ -108,3 +108,7 @@ dist
 
 # macOS miscellany
 __MACOSX/
+
+# FriendFinder test data
+# (This will keep production data clean.)
+test.json
