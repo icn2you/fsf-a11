@@ -101,8 +101,14 @@ $(document).ready(() => {
       });
 
       $('.form-check-input').each(function() {
-        if($(this).val() === '')
+        const name = $(this).attr('name');
+
+        if ($(`input:radio[name="${name}"]:checked`).length == 0) {
+          // DEBUG:
+          // console.log(`${name} is not valid!`);
+          
           formValid = false;
+        }        
       });
 
       return formValid;
